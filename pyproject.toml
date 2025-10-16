@@ -7,7 +7,9 @@ authors = [
     { name = "Michael Groys", email = "mgroys@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "mcp[cli]>=1.17.0,<2.0.0",
+]
 
 [build-system]
 requires = ["uv_build>=0.8.9,<0.9.0"]

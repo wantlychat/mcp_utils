@@ -1,2 +1,3 @@
-def hello() -> str:
-    return "Hello from mcp-utils!"
+from .mcp_creator import create_protected_mcp
+
+__all__ = ["create_protected_mcp"]
