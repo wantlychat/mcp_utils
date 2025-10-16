@@ -64,3 +64,15 @@ def is_mcp_initializer(func: Callable) -> bool:
     """
     return (hasattr(func, '_is_mcp_initializer') and 
             func._is_mcp_initializer)
+
+def get_mcp_initializer_metadata(func: Callable) -> dict[str, Any]:
+    """
+    Get the MCP initializer metadata for a function.
+    
+    Args:
+        func: The function to get the metadata for
+        
+    Returns:
+        Dictionary containing the MCP initializer metadata
+    """
+    return getattr(func, '_mcp_metadata', None)
