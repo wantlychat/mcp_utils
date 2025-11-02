@@ -1,6 +1,6 @@
 [project]
-name = "mcp-utils"
-version = "0.2.2"
+name = "wantly-mcp-utils"
+version = "0.3.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [
