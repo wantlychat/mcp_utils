@@ -34,6 +34,7 @@ This package provides utilities for working with MCP servers, including:
 
 - `mcp_creator.py` - Tools for creating MCP server instances
 - `mcp_initializer.py` - Initialization utilities for MCP servers
+- `WantlyMCPLowLevel` - Base class for building low level MCP implementations
 
 ## License
 
