@@ -51,7 +51,7 @@ class WantlyMCPLowLevel(ABC):
             )
         return self._session_manager  # pragma: no cover
 
-    async def streamable_http_app(self) -> Starlette:
+    def streamable_http_app(self) -> Starlette:
         if not self.server:
             raise ValueError("Server not initialized")
         json_response = False
