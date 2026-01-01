@@ -1,6 +1,6 @@
 [project]
 name = "wantly-mcp-utils"
-version = "0.5.3"
+version = "0.6.0"
 description = "Utilities for building mcps for wantly chat platform"
 readme = "README.md"
 authors = [
