@@ -26,6 +26,7 @@ class WantlyMCP:
             tools=tools,
             debug=debug,
             auth=auth,
+            stateless_http=True,
         )
         return fast_mcp
 
