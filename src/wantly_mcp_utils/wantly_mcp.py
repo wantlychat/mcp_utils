@@ -4,6 +4,7 @@ from mcp.server.fastmcp.server import StreamableHTTPASGIApp
 from mcp.server.fastmcp.server import FastMCP
 from mcp.server.lowlevel import Server
 from mcp.server.streamable_http_manager import StreamableHTTPSessionManager
+from mcp.server.transport_security import TransportSecuritySettings
 from starlette.applications import Starlette
 import mcp.types as types
 from mcp.server.auth.settings import AuthSettings
@@ -19,7 +20,11 @@ class WantlyMCP:
         self._fast_mcp = self._initialize_fast_mcp(server_name, instructions, tools, debug, auth)
         self._add_decorated_tools()
     
-    def _initialize_fast_mcp(self, server_name: str, instructions: str, tools: list[types.Tool], debug: bool, auth: AuthSettings | None):
+    def _initialize_fast_mcp(self, server_name: str, instructions: str, tools: list[types.Tool], debug: bool, auth: AuthSettings | None, transport_security: TransportSecuritySettings | None = None):
+        if transport_security is None:
+            transport_security = TransportSecuritySettings(
+                enable_dns_rebinding_protection=False
+            )
         fast_mcp = FastMCP(
             name=server_name,
             instructions=instructions,
@@ -27,6 +32,7 @@ class WantlyMCP:
             debug=debug,
             auth=auth,
             stateless_http=True,
+            transport_security=transport_security,
         )
         return fast_mcp
 
