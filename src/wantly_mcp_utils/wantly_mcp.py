@@ -5,6 +5,7 @@ from mcp.server.fastmcp.server import FastMCP
 from mcp.server.lowlevel import Server
 from mcp.server.streamable_http_manager import StreamableHTTPSessionManager
 from mcp.server.transport_security import TransportSecuritySettings
+from mcp.shared.context import RequestContext
 from starlette.applications import Starlette
 import mcp.types as types
 from mcp.server.auth.settings import AuthSettings
@@ -43,6 +44,10 @@ class WantlyMCP:
     @property
     def server(self) -> Server:
         return self._fast_mcp._mcp_server
+
+    @property
+    def request_context(self) -> RequestContext:
+        return self._fast_mcp.request_context
 
     def streamable_http_app(self) -> Starlette:
         return self._fast_mcp.streamable_http_app()
